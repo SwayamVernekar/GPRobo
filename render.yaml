@@ -1,3 +1,7 @@
+databases:
+  - name: job-app-db
+    plan: free
+
 services:
   - type: web
     name: job-application-backend
@@ -8,10 +12,6 @@ services:
     envVars:
       - key: MONGODB_URI
         fromService:
-          type: mongodb
+          type: database
           name: job-app-db
           property: connectionString
-
-  - type: mongodb
-    name: job-app-db
-    plan: free
