@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.gprobo.com/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.gprobo.com/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.gprobo.com/img/favicon-16x16.png">
+    <link rel="manifest" href="https://www.gprobo.com/site.webmanifest">
+
+    <!-- Vendor CSS Files -->
+    <link href="vendor/aos/aos.css" rel="stylesheet">
+    <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-block;
+            margin: 20px;
+            text-decoration: none;
+            font-size: 16px;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            margin: 50px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Form Title */
+        .form-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Form Fields */
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .submit-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Messages */
+        .message {
+            display: none;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .loading {
+            color: #004085;
+            background-color: #cce5ff;
+            border: 1px solid #b8daff;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .form-container {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="careers.html" class="back-btn">⇐ Back to Careers Page</a>
+    </header>
+    <main>
+        <div class="form-container">
+            <h2 class="form-title">Join Our Robotics Team</h2>
+
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="contactNo">Contact No.*</label>
+                    <input type="tel" id="contactNo" name="contactNo" pattern="[0-9]{10}" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="collegeName">College Name*</label>
+                    <input type="text" id="collegeName" name="collegeName" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="yearOfPassing">Year of Passing*</label>
+                    <input type="text" id="yearOfPassing" name="yearOfPassing" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="roleCategory">Role Category</label>
+                    <select id="roleCategory" name="roleCategory">
+                        <option value="">Select Role Category</option>
+                        <option value="AI/ML Engineer">AI/ML Engineer</option>
+                        <option value="Software Engineer">Software Engineer</option>
+                        <option value="ROS Developer">ROS Developer</option>
+                        <option value="Computer Vision Engineer">Computer Vision Engineer</option>
+                        <option value="Full-Stack Developer">Full-Stack Developer</option>
+                        <option value="Mechanical Engineer">Mechanical Engineer</option>
+                        <option value="Product Designer">Product Designer</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exceptionalWork">Exceptional Work (Software, Hardware, AI)</label>
+                    <textarea id="exceptionalWork" name="exceptionalWork" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="resume">Upload Resume*</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
+
+                <div id="loading-message" class="message loading">Submitting...</div>
+                <div id="success-message" class="message success">Form submitted successfully!</div>
+                <div id="error-message" class="message error"></div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // API endpoint - Change this to your deployed backend URL
+        const API_URL = 'http://localhost:3000/api/submit';
+
+        // File size validation
+        document.getElementById("resume").addEventListener("change", function() {
+            var file = this.files[0];
+            var maxSize = 20 * 1024 * 1024; // 20 MB in bytes
+
+            if (file && file.size > maxSize) {
+                alert("File size must be less than 20MB.");
+                this.value = ""; // Clear the file input
+            }
+        });
+
+        // Form submission
+        document.getElementById("applicationForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const loadingMessage = document.getElementById("loading-message");
+            const successMessage = document.getElementById("success-message");
+            const errorMessage = document.getElementById("error-message");
+            const submitBtn = document.getElementById("submitBtn");
+
+            // Show loading message and disable button
+            loadingMessage.style.display = "block";
+            successMessage.style.display = "none";
+            errorMessage.style.display = "none";
+            submitBtn.disabled = true;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                loadingMessage.style.display = "none";
+                submitBtn.disabled = false;
+
+                if (response.ok && data.success) {
+                    successMessage.style.display = "block";
+                    document.getElementById("applicationForm").reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.style.display = "none";
+                    }, 5000);
+                } else {
+                    errorMessage.textContent = data.message || "Error submitting form. Please try again.";
+                    errorMessage.style.display = "block";
+                    
+                    // Show validation errors if any
+                    if (data.errors && Array.isArray(data.errors)) {
+                        const errorList = data.errors.map(err => 
+                            typeof err === 'string' ? err : err.msg
+                        ).join(', ');
+                        errorMessage.textContent = errorList;
+                    }
+                }
+            } catch (error) {
+                loadingMessage.style.display = "none";
+                submitBtn.disabled = false;
+                errorMessage.textContent = "Network error. Please check your connection and try again.";
+                errorMessage.style.display = "block";
+                console.error("Error:", error);
+            }
+        });
+
+        // Remove .html extension from URL
+        if (window.location.pathname.endsWith('.html')) {
+            const newUrl = window.location.pathname.replace('.html', '');
+            history.replaceState({}, '', newUrl);
+        }
+    </script>
+</body>
+</html>

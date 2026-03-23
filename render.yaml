@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: job-application-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGODB_URI
+        fromService:
+          type: mongodb
+          name: job-app-db
+          property: connectionString
+
+  - type: mongodb
+    name: job-app-db
+    plan: free
