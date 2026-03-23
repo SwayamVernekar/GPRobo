@@ -901,8 +901,8 @@
     </div>
 
     <script>
-        // Configuration
-        const API_URL = 'http://localhost:3000/api';
+        // Configuration - use same origin as current host
+        const API_URL = window.location.origin + '/api';
         let currentPage = 1;
         let allApplications = [];
         let filteredApplications = [];
