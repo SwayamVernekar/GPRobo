@@ -1,7 +1,3 @@
-databases:
-  - name: job-app-db
-    plan: free
-
 services:
   - type: web
     name: job-application-backend
@@ -11,7 +7,13 @@ services:
     startCommand: npm start
     envVars:
       - key: MONGODB_URI
-        fromService:
-          type: database
-          name: job-app-db
-          property: connectionString
+        value: mongodb+srv://swayamvernekar5_db_user:Byp33HpwuzxOPh76@gprcluster0.u2slucx.mongodb.net/?appName=GPRCluster0
+
+      - key: PORT
+        value: 3000
+
+      - key: MAX_FILE_SIZE
+        value: 20971520
+
+      - key: ALLOWED_FILE_TYPES
+        value: .pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document
